@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - ShowTime</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="/" class="nav-brand">🎬 Show<span class="logo-accent">Time</span></a>
+    <div class="nav-actions" id="nav-actions"></div>
+  </nav>
+
+  <div class="container">
+    <div class="tabs">
+      <button class="tab-btn active" id="tab-bookings">My Bookings</button>
+      <button class="tab-btn" id="tab-watchlist">My Watchlist</button>
+    </div>
+
+    <div id="panel-bookings">
+      <div class="status-legend">
+        <span>Legend:</span>
+        <span class="status-badge status-pending">PENDING</span>
+        <span class="status-badge status-paid">PAID</span>
+        <span class="status-badge status-cancelled">CANCELLED</span>
+        <span class="status-badge status-refund_needed">REFUND NEEDED</span>
+      </div>
+      
+      <div id="bookings-list">Loading...</div>
+    </div>
+
+    <div id="panel-watchlist" style="display: none;">
+      <div id="watchlist-list">Loading...</div>
+    </div>
+  </div>
+
+  <script src="/js/auth.js"></script>
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>

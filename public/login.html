@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log In - ShowTime</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="/" class="nav-brand">🎬 Show<span class="logo-accent">Time</span></a>
+    <div class="nav-actions" id="nav-actions"></div>
+  </nav>
+
+  <div class="auth-container">
+    <div class="auth-card">
+      <h2 style="margin-bottom: 1.5rem; text-align: center;">Log In</h2>
+      <div id="alert-box" class="alert alert-danger" style="display: none;"></div>
+      
+      <form id="login-form">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="email" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="password" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Log In</button>
+      </form>
+      <p style="text-align: center; margin-top: 1rem;">
+        Don't have an account? <a href="/signup.html" style="color: var(--brand-red);">Sign Up</a>
+      </p>
+    </div>
+  </div>
+
+  <script src="/js/auth.js"></script>
+  <script>
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const alertBox = document.getElementById('alert-box');
+      alertBox.style.display = 'none';
+      
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      
+      try {
+        const res = await fetch('/api/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+        
+        if (res.ok) {
+          const urlParams = new URLSearchParams(window.location.search);
+          window.location.href = urlParams.get('redirect') || '/dashboard.html';
+        } else {
+          const data = await res.json();
+          alertBox.textContent = data.error || 'Login failed.';
+          alertBox.style.display = 'block';
+        }
+      } catch (err) {
+        alertBox.textContent = 'Network error.';
+        alertBox.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>

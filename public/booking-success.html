@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Success - ShowTime</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="/" class="nav-brand">🎬 Show<span class="logo-accent">Time</span></a>
+    <div class="nav-actions" id="nav-actions"></div>
+  </nav>
+
+  <div class="container">
+    <div class="receipt-card" id="receipt-card">
+      <div class="icon-success">✓</div>
+      <h2>Booking Confirmed!</h2>
+      <p style="color: var(--text-muted); margin-top: 0.5rem;">Your tickets have been booked successfully.</p>
+      
+      <div class="receipt-details" id="receipt-details">
+        Loading details...
+      </div>
+      
+      <a href="/" class="btn btn-primary">Back to Movies</a>
+      <a href="/dashboard.html" class="btn btn-outline" style="color: var(--text-dark); border-color: #ccc; margin-left: 1rem;">View My Bookings</a>
+    </div>
+  </div>
+
+  <script src="/js/auth.js"></script>
+  <script src="/js/result.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShowTime Booking</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="/" class="nav-brand">🎬 Show<span class="logo-accent">Time</span></a>
+    <div class="nav-search">
+      <input type="text" id="search-input" placeholder="Search for movies...">
+    </div>
+    <div class="nav-actions" id="nav-actions">
+      <!-- Auth state rendered here -->
+    </div>
+  </nav>
+
+  <div class="hero">
+    <h1>Experience the Magic of Cinema</h1>
+    <p>Book tickets for the latest movies in theatres near you.</p>
+    <div class="promo-pill">New releases out now!</div>
+  </div>
+
+  <div class="genres" id="genres-container">
+    <div class="genre-chip active" data-genre="All">All</div>
+    <div class="genre-chip" data-genre="Action">Action</div>
+    <div class="genre-chip" data-genre="Sci-Fi">Sci-Fi</div>
+    <div class="genre-chip" data-genre="Drama">Drama</div>
+    <div class="genre-chip" data-genre="Thriller">Thriller</div>
+    <div class="genre-chip" data-genre="Comedy">Comedy</div>
+    <div class="genre-chip" data-genre="Animation">Animation</div>
+    <div class="genre-chip" data-genre="Crime">Crime</div>
+  </div>
+
+  <div class="container">
+    <div class="movie-count" id="movie-count">Loading movies...</div>
+    <div class="movie-grid" id="movies-container">
+      <!-- Movies rendered here -->
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 ShowTime Booking. All times shown in IST.</p>
+  </footer>
+
+  <script src="/js/auth.js"></script>
+  <script src="/js/home.js"></script>
+</body>
+</html>

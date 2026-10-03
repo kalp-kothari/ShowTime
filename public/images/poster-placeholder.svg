@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 450" width="300" height="450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f2232"/>
+      <stop offset="100%" stop-color="#2d3148"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="450" fill="url(#bg)"/>
+  <circle cx="150" cy="180" r="50" fill="#333545" stroke="#f84464" stroke-width="4"/>
+  <path d="M140 160 L170 180 L140 200 Z" fill="#f84464"/>
+  <text x="150" y="270" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">ShowTime</text>
+  <text x="150" y="300" fill="#888899" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" text-anchor="middle">Poster Unavailable</text>
+</svg>

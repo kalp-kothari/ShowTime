@@ -1,0 +1,586 @@
+:root {
+  --bg-color: #f5f5f7;
+  --nav-bg: #333545;
+  --brand-red: #f84464;
+  --text-dark: #222428;
+  --text-muted: #666e7a;
+  --card-bg: #ffffff;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --font-stack: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-stack);
+  background-color: var(--bg-color);
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Navbar */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--nav-bg);
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow-md);
+}
+
+.nav-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.logo-accent {
+  color: var(--brand-red);
+}
+
+.nav-search {
+  flex: 1;
+  max-width: 400px;
+  margin: 0 2rem;
+}
+
+.nav-search input {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  border: none;
+  outline: none;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Buttons */
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--brand-red);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #d13653;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+}
+
+.btn-outline:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+.btn-ghost {
+  background-color: transparent;
+  color: var(--text-muted);
+}
+
+.btn-ghost:hover {
+  color: var(--text-dark);
+}
+
+.btn-watchlist {
+  background-color: #f1f1f1;
+  color: var(--text-dark);
+  border: 1px solid #ddd;
+}
+.btn-watchlist:hover {
+  background-color: #e2e2e2;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, #1a1a24, #2a2a3b);
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.promo-pill {
+  display: inline-block;
+  background-color: var(--brand-red);
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+/* Genres */
+.genres {
+  padding: 1.5rem 2rem;
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.genre-chip {
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background-color: white;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.genre-chip.active {
+  background-color: var(--brand-red);
+  color: white;
+  border-color: var(--brand-red);
+}
+
+/* Movies Grid */
+.container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.movie-count {
+  margin-bottom: 1rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.movie-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.poster-wrapper {
+  position: relative;
+  aspect-ratio: 2/3;
+  background: #eee;
+}
+
+.poster-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rating-badge {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: rgba(0,0,0,0.7);
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+.card-body {
+  padding: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.movie-meta {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.card-actions {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card-actions .btn {
+  width: 100%;
+}
+
+/* Auth Forms */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+}
+
+.auth-card {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  width: 100%;
+  max-width: 400px;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--brand-red);
+  box-shadow: 0 0 0 3px rgba(248,68,100,0.2);
+}
+
+.alert {
+  padding: 0.75rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: 1rem;
+}
+
+.alert-danger {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #f87171;
+}
+
+/* Dashboard */
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 2rem;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+}
+
+.tab-btn.active {
+  color: var(--brand-red);
+  border-bottom-color: var(--brand-red);
+}
+
+.status-legend {
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 0.875rem;
+  background: white;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.status-badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+}
+.status-paid { background-color: #10b981; }
+.status-pending { background-color: #f59e0b; color: #fff; }
+.status-cancelled { background-color: #6b7280; }
+.status-refund_needed { background-color: #f97316; }
+
+.booking-card, .watchlist-card {
+  background: white;
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.booking-card img, .watchlist-card img {
+  width: 100px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  aspect-ratio: 2/3;
+}
+
+.booking-details, .watchlist-details {
+  flex: 1;
+}
+.booking-ref {
+  font-family: monospace;
+  background: #f1f1f1;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+
+.refund-notice {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: #fef3c7;
+  color: #92400e;
+  border-left: 4px solid #f59e0b;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+}
+
+/* Movie Details */
+.movie-header {
+  background: linear-gradient(to right, #111, #333);
+  color: white;
+  padding: 3rem 2rem;
+  display: flex;
+  gap: 2rem;
+  align-items: flex-end;
+}
+
+.movie-header img {
+  width: 200px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 2/3;
+  object-fit: cover;
+}
+
+.venue-notice {
+  background: #fff3cd;
+  color: #856404;
+  padding: 0.75rem 2rem;
+  text-align: center;
+  font-size: 0.875rem;
+  border-bottom: 1px solid #ffeeba;
+}
+
+.theatre-card {
+  background: white;
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.theatre-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.showtimes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.showtime-btn {
+  background: white;
+  border: 1px solid #10b981;
+  color: #10b981;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s;
+}
+.showtime-btn:hover:not(:disabled) {
+  background: #10b981;
+  color: white;
+}
+.showtime-btn.sold-out {
+  border-color: #ccc;
+  color: #ccc;
+  background: #f9f9f9;
+  cursor: not-allowed;
+}
+
+.booking-dock {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  padding: 1rem 2rem;
+  box-shadow: 0 -4px 6px -1px rgba(0,0,0,0.1);
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+.booking-dock.active {
+  display: flex;
+}
+
+.dock-info {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.dock-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.qty-select {
+  padding: 0.5rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid #ccc;
+}
+
+/* Receipt */
+.receipt-card, .cancelled-card {
+  background: white;
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  max-width: 600px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.icon-success {
+  font-size: 4rem;
+  color: #10b981;
+  margin-bottom: 1rem;
+}
+
+.icon-cancelled {
+  font-size: 4rem;
+  color: #ef4444;
+  margin-bottom: 1rem;
+}
+
+.receipt-details {
+  text-align: left;
+  margin: 2rem 0;
+  background: #f9fafb;
+  padding: 1.5rem;
+  border-radius: var(--radius-sm);
+}
+.receipt-details p {
+  margin-bottom: 0.5rem;
+}
+
+/* Footer */
+footer {
+  background: #1a1a24;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 2rem;
+  margin-top: 4rem;
+}
+
+/* Mock Payment */
+.payment-terminal {
+  background: #f5f5f7;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mock-pay-btn {
+  background-color: #10b981;
+  color: white;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+.mock-pay-btn:hover { background-color: #059669; }
+.mock-cancel-btn {
+  background-color: #ef4444;
+  color: white;
+  width: 100%;
+}
+.mock-cancel-btn:hover { background-color: #dc2626; }
+
+@media (max-width: 768px) {
+  .movie-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .dock-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}

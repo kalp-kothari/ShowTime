@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Details - ShowTime</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="/" class="nav-brand">🎬 Show<span class="logo-accent">Time</span></a>
+    <div class="nav-actions" id="nav-actions"></div>
+  </nav>
+
+  <div class="movie-header" id="movie-header">
+    <!-- Header injected here -->
+  </div>
+
+  <div class="venue-notice">
+    Seating is first-come, first-served / assigned at the venue. All times are in IST.
+  </div>
+
+  <div class="container" id="shows-container" style="padding-bottom: 100px;">
+    <!-- Shows injected here -->
+  </div>
+
+  <div class="booking-dock" id="booking-dock">
+    <div class="dock-info">
+      <div>
+        <div style="font-weight: 600;" id="dock-theatre"></div>
+        <div style="color: var(--text-muted); font-size: 0.875rem;" id="dock-time"></div>
+      </div>
+      <div>
+        <label>Tickets:</label>
+        <select id="dock-qty" class="qty-select">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+        </select>
+      </div>
+    </div>
+    <div class="dock-actions">
+      <div style="font-size: 1.25rem; font-weight: 700;">Total: ₹<span id="dock-total">0</span></div>
+      <button class="btn btn-primary" id="dock-book-btn">Book Now</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 ShowTime Booking. All times shown in IST.</p>
+  </footer>
+
+  <script src="/js/auth.js"></script>
+  <script src="/js/movie.js"></script>
+</body>
+</html>
